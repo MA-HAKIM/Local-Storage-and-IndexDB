@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Documents</title>
+    <link rel="stylesheet" href="./styles/site.css" />
+    <script src="./scripts/jquery.js"></script>
+    <script>
+
+       var dbItem = { folder: "", description: "", files: [] };
+       $(() => {
+         $("#bars").click(() => {
+           $("#topbar").toggleClass("responsive");
+         });
+         $("#dropzone").on("dragenter", (ev) => {
+          ev.preventDefault();
+         });
+          $("#dropzone").on("dragover", (ev) => {
+               ev.preventDefault();
+          });
+          $("#dropzone").on("dragleave", (ev) => {
+               ev.preventDefault();
+          });
+          $("#dropzone").on("drop", (ev) => {
+               var files = ev.originalEvent.dataTransfer.files;
+               var farr = Array.from(files);
+               $("#flist li").not(":first").remove();
+               farr.forEach((f, i)=>{
+                    if(f.type.indexOf('video') < 0){
+                         var reader = new FileReader();
+                                   reader.onload = (e) => {
+                                        console.log(reader.result);
+                                        //$('#img').attr("src", reader.result);
+                                        var fname = f.name;
+                                        
+                                        if (f.name.length > 10) {
+                                             var split = fname.split(".");
+                                        var fname = split[0];
+                                        var extension = split[1];
+                                             fname =
+                                                  fname.substring(0, 7) +
+                                                  ".." +
+                                                  extension;
+                                        }
+                                        dbItem.files.push({
+                                             name: f.name,
+                                             type: f.type,
+                                             content: reader.result,
+                                        });
+
+                                        $(
+                                             `<li class="flist-i">${fname}</li>`
+                                        ).appendTo($("#flist"));
+                                   };
+                                   reader.readAsDataURL(f);
+                    }
+               });
+               ev.preventDefault();
+          });
+          $("#save").click(()=>{
+               if($("#folder").val()== ""){
+                    var x = document.getElementById("snackbar");
+                    x.innerHTML = "No folder name";
+                    // Add the "show" class to DIV
+                    x.className = "show";
+
+                    // After 3 seconds, remove the show class from DIV
+                    setTimeout(function () {
+                         x.className = x.className.replace(
+                              "show",
+                              ""
+                         );
+                    }, 3000);
+                    return;
+                  }
+		              else{
+                 $('#folder').val();
+                 var x = document.getElementById("snackbar");
+                    x.innerHTML = "Data Saved Successfully"
+                    ;
+                    /* Add the "show" class to Div */
+                    x.className = "show";
+
+                    /* After 3 seconds, remove the show class from Div */
+                    setTimeout(function () {
+                         x.className = x.className.replace(
+                              "show",
+                              ""
+                         );
+                    }, 3000);
+		              }
+               dbItem.folder = $("#folder").val();
+               dbItem.folder = dbItem.folder.replace(/'/g, "");
+               dbItem.folder = dbItem.folder.replace(/"/g, "");
+               dbItem.description = $("#desc").val();
+               var ol = localStorage.getItem(dbItem.folder);
+               if (ol) {
+                    ol = JSON.parse(ol);
+
+                    dbItem.files = ol.files.concat(dbItem.files);
+               }
+               localStorage.setItem(dbItem.folder,JSON.stringify(dbItem) );
+
+          });
+          
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar" id="topbar">
+      <a href="./index.html" class="nav-link brand">File Store</a>
+      <a href="javascript:void(0)" class="nav-link icon" id="bars"><i class="fa fa-bars"></i></a>
+      <a href="./index.html" class="nav-link" id="home">Home</a>
+      <a href="./fileexplorer.html" class="nav-link">Local Storage Files</a>
+      <a href="./fileexplorerindexeddb.html" class="nav-link">IndexDB Storage Files</a>
+  </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-4 m-1 p-1">
+          <h3>Save files in Offline Storage</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2 col-field">
+          <label class="label">Folder Name</label>
+          <input class="field-with-label" id="folder"/>
+        </div>
+        <div class="col-2 col-field">
+          <label class="label">Description</label>
+          <input class="field-with-label" id="desc"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="drop p-1 m-1" id="dropzone">Drag &amp Drop files here</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 style="margin-top: 0.75rem">
+          <ul class="flist" id="flist">
+            <li class="flist-i header">Files</li>
+            <li class="flist-i">No files</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 flex-col" style="margin-top: 0.75rem">
+          <a href="./fileexplorer.html" class="btn" ><i class="fa fa-long-arrow-left"></i> back to files list</a>
+          <span class="full-grow"></span>
+          <button class="btn" id="save">
+            <i class="fa fa-save"></i> Save files
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+  </body>
+</html>

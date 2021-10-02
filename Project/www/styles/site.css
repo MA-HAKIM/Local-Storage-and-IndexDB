@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("./font-awesome.css");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/*
+ * Top nav
+ */
+ .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: #d2a9e6;
+    border-bottom: 1px solid #dee2e6!important;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.nav-link{
+    display: block;
+    width: 250px;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 16px;
+    transition: all 1s ease-out;
+    border: solid 1px rgba(0,0,0,.15);
+    font-size: 1.3rem;
+}
+.nav-link:hover{
+    background-color: lightgray;
+}
+.brand {
+    width: 200px;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+.icon {
+    width: 50px;
+    display: none;
+}
+.full-grow{
+    flex: 1 1 auto;
+}
+h3{
+    font-family: s;
+    font-size: 2rem;
+    text-align: center;
+    color: blue;
+    margin: 10px;
+}
+/*
+     * Card
+     */
+     .card {
+        margin: 2rem 3rem;
+         margin-bottom: 2rem;
+         background-color: #5900ff28;
+         border-radius: .3rem;
+         padding: 4rem 2rem;
+         border-radius: 35px;
+    }
+    .main-head {
+     font-family: s;
+     color: rgb(0, 140, 255);
+     text-align: center;
+     font-size: 3.5rem;
+     font-weight: 300;
+     line-height: 1.2;
+    }
+    .sub-head {
+     font-size: 1.5rem;
+     font-weight: 300;
+     line-height: 1.2;
+    }
+    .focused {
+     font-size: 1.25rem;
+     font-weight: 300;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    .my {
+        margin-top: 1.5rem!important;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid rgba(0,0,0,.1);
+    }
+.container {
+    width: 97%;
+    margin: .75rem auto;
+    
+}
+.drop {
+    height: 250px;
+    width: 100%;
+    border: 1px solid rgba(147, 128, 108, 0.25);
+    padding: 1.25rem 1.5rem;
+    margin: .75rem auto;
+    text-align: center;
+    border-radius: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: turquoise;
+    font-size: 1.5rem;
+}
+#dropzone{
+    margin: 20px 0 20px 0;
+}
+.bottom-border{
+    border-bottom: 1px solid rgba(147, 128, 108, 0.25);
+}
+.row {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #aa01ff;
+    font-size: 1.5rem;
+}
+.col-1 {
+    width: 25%;
+}
+.col-2{
+    width: 50%;
+}
+.col-3{
+    width: 75%;
+}
+.col-4{
+    width: 100%;
+}
+.flex-col {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.flex-col-f{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.label-main {
+    padding: 0.5em 0.75em .25rem .75rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+}
+.label-secondary {
+    padding: 0.25em 0.75em;
+    font-weight: 500;
+    font-style: italic;
+}
+.label {
+    padding-right: 1.5rem;
+    width: 180px;
+    padding: 0.5em 0.75em;
+    font-size: 1.2rem;
+    background-color: rgb(223, 202, 202);
+    border-radius: 10px 0 0 10px;
+}
+.col-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding-right: 5rem;
+    
+}
+
+.p-1{
+    padding: .5rem;
+}
+.m-1 {
+    margin: .25rem;
+}
+.mb-1{
+    margin-bottom: .25rem;
+}
+.mr-1{
+    margin-right: .25rem;
+}
+.mr-2{
+    margin-right: .5rem;
+}
+.field {
+    width: 100%;
+    border: 1px solid rgba(147, 128, 108, 0.25);
+    padding: 0.5em 0.75em;
+    font-family: inherit;
+}
+.field-with-label{
+    width: calc(100% - 150px);
+    border: 1px solid rgba(147, 128, 108, 0.25);
+    padding: 0.5em 0.75em;
+    font-family: inherit;
+    
+}
+.f-w {
+    width: 100%;
+}
+.btn {
+    background-color: rgba(255, 255, 0, 0.322); /*background-color: teal; rgba(147, 128, 108, 0.3);*/
+    color: rgba(0,0,0,.7); /*#666666;*/
+    font: inherit;
+    font-weight: normal;
+    padding: 0.5em 0.75em;
+    border: 1px solid rgba(147, 128, 108, 0.25);
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.small {
+    padding: 0.25rem 0.5rem;
+}
+/*
+ * List
+ */
+ .flist {
+    padding-left: 0;
+    margin: 0 auto;
+    width: 100%;
+    list-style: none;
+}
+.flist-i {
+    padding: .25rem .25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    width: 100%;
+    font-size: .75rem;
+}
+.flist-i.header{
+    padding: .75rem .25rem;
+    color: #000;
+    background-color: #f8f9fa;
+    
+}
+.flist-i:first-child { 
+    border-radius: 10px 10px 0 0;
+    width: 100%;   
+}
+.flist-i:last-child { 
+    border-radius: 0 0 10px 10px;
+    width: 100%;   
+}
+.box {
+    width: 210px;
+}
+.figure{
+    width: 210px;
+    border: solid 1px  rgba(0,0,0,.125);;
+    border-radius: .725rem;  
+    align-items: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.box div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 .5rem;
+    margin-bottom: .5rem;
+    margin-right: 1.25rem;
+}
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color:  rgb(34, 34, 34); /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  @media screen and (max-width: 600px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: #d2a9e6;
+        border-bottom: 1px solid #dee2e6!important;
+        width: 100%;
+        
+    }
+    
+    .nav-link{
+        display: block;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        padding: 15px 16px;
+        transition: all 1s ease-out;
+    }
+    .navbar .nav-link:not(:first-child){display: none;}
+    .navbar .nav-link.icon {
+        margin-top: 10px;
+        display: block;
+        z-index: 99;
+        position: fixed;
+        right: 0;
+        top:0;
+        width: 65px;
+        height: 59px;
+        background-color: aqua;
+    }
+    .navbar.responsive a.nav-link {
+        display: block;
+       
+    }
+    
+    /**************/
+    .row {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: .2rem;
+        
+    }
+    .col-1 {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .col-2 {
+       width: 100%;
+       margin-bottom: 5px;
+   }
+   .col-3 {
+       width: 100%;
+       margin-bottom: 5px;
+   }
+   .col-3 {
+       width: 100%;
+       margin-bottom: 5px;
+   }
+}
